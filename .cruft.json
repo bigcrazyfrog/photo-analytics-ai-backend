@@ -1,0 +1,17 @@
+{
+  "template": "git@github.com:saritasa-nest/saritasa-python-boilerplate-django.git",
+  "commit": "0cac40c830dbf0bf1a04652ea52d459bfd59cfde",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "Photo analytics",
+      "jira_key": "PYCAMP",
+      "subdomain": "photo-analytics",
+      "repo_name": "photo-analytics-backend",
+      "repo_frontend_name": "photo-analytics-frontend",
+      "python_version": "3.11",
+      "_template": "git@github.com:saritasa-nest/saritasa-python-boilerplate-django.git"
+    }
+  },
+  "directory": null
+}

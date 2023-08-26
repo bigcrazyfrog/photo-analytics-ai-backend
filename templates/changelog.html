@@ -1,0 +1,56 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="card mb-5">
+    <div class="card-header">
+      Debug Panel
+    </div>
+
+    <div class="card-body row p-0 m-0">
+      <nav class="nav flex-column bg-secondary col-2 text-center">
+        {% if debug or user.is_staff %}
+          <a class="nav-link" href="{% url 'admin:index' %}">Admin page</a>
+        {% endif %}
+        {% if debug %}
+          <a class="nav-link" href="{% url 'open_api:ui' %}">Open OpenApi</a>
+        {% endif %}
+      </nav>
+
+      <ul class="list-group list-group-flush col">
+        {% if user.is_staff %}
+          <li class="list-group-item">
+            {{ env|capfirst }} environment
+          </li>
+          <li class="list-group-item">
+            App Version {{ version }}
+          </li>
+          <li class="list-group-item">
+            Python {{ python_version }}
+          </li>
+          <li class="list-group-item">
+            Django {{ django_version }}
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="card-footer text-end">
+      {% if user.is_staff %}
+        <a href="{{argo_cd_url}}applications/{{ argo_cd_app }}">
+          <img class="img text-bg-dark" src="{{ argo_cd_url }}api/badge?name={{ argo_cd_app }}&revision=true">
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card mb-5">
+    <div class="card-content">
+      <div class="content">
+        {{ changelog.text|safe }}
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

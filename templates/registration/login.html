@@ -1,0 +1,7 @@
+{% include "base_form.html" with form_action="login" %}
+
+{% block content %}
+  <div class="row col-1 m-auto mt-3">
+    <a href={% url 'password_reset' %} class="text-center">Reset password</a>
+  </div>
+{% endblock %}
